@@ -53,7 +53,6 @@ export const ModalWindow = ({columns, closeModal, modalMode}: ModalType) => {
   return (
     <ModalEdited closeModal={closeModal} modalMode={modalMode}>
       <div className={s.modal}>
-
         <input className={s.input} placeholder='Search Available columns...' type="text" onChange={onChangeHandler} value={text}/>
         <div className={s.columnsWrapper}>
           <div className={s.available}>
