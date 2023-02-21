@@ -1,24 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import s from './App.module.css';
+import { useFetchTables } from "./hooks/use-fetch-tables";
+import { useAppSelector } from "./store/store";
+import { ModalWindow } from "./ui/components/ModalWindow/ModalWindow";
+import { Table } from "./ui/components/Table/Table";
+import { useModalHandler } from "./hooks/use-modal-handler";
 
 function App() {
+  useFetchTables()
+  const columns = useAppSelector(store => store.table.columns)
+  const isLoading = useAppSelector(store => store.table.isLoading)
+  const {modal: inCreationModal, toggleModal: toggleInCreationModal} = useModalHandler()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={s.app}>
+
+      {isLoading && <div className={s.preloader}>Loading...</div>}
+      <Table closeModal={toggleInCreationModal}/>
+      <ModalWindow
+        modalMode={inCreationModal}
+        closeModal={toggleInCreationModal}
+        columns={columns}
+      />
     </div>
   );
 }

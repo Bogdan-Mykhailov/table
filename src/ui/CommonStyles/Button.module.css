@@ -1,0 +1,44 @@
+.button {
+  border: none;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 8px 20px;
+  width: 100%;
+  color: var(--text);
+  outline: none;
+  position: relative;
+  z-index: 0;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.button::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 10px;
+  background: var(--primary);
+  bottom: 0;
+  z-index: -1;
+  transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+  text-decoration: none;
+  color: var(--text);
+}
+
+.button:hover::after {
+  width: 100%;
+  height: 106%;
+  transition: all 0.3s ease-in-out 0s;
+}
