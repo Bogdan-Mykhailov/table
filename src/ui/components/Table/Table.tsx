@@ -25,30 +25,33 @@ export const Table = ({closeModal}: ITAble) => {
 
   return (
     <div className={s.tableWrapper}>
-      <button className={`${s.button} ${style.button}`} onClick={openModalHandler}>Select Columns</button>
+      <button
+        className={`${s.button} ${style.button}`}
+        onClick={openModalHandler}
+      >
+        Select Columns
+      </button>
 
-
-        <table className={s.table}>
-          <thead className={s.head}>
+      <table className={s.table}>
+        <thead className={s.head}>
           <tr>
             {columns.map(c => c.isSelected && <th key={c.key}>{c.key.toUpperCase()}</th>)}
           </tr>
-          </thead>
+        </thead>
 
-          <tbody className={s.body}>
-          {
-            modifiedUserData && modifiedUserData.map((user) => {
-              return user && <tr key={user.id}>{
-                columns && columns.map(c => {
-                  return c.isSelected && <td key={c.key}>{user && user[c.key]}</td>
-                })
-              }
-              </tr>
-            })
-          }
-          </tbody>
-        </table>
-
+        <tbody className={s.body}>
+        {
+          modifiedUserData && modifiedUserData.map((user) => {
+            return user && <tr key={user.id}>{
+              columns && columns.map(c => {
+                return c.isSelected && <td key={c.key}>{user && user[c.key]}</td>
+              })
+            }
+            </tr>
+          })
+        }
+        </tbody>
+      </table>
     </div>
   );
 };

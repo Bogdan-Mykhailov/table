@@ -1,12 +1,10 @@
 import { ColumnNameType, IUser } from "../store/table-reducer";
 import { useEffect, useState } from "react";
+import { ColumnArgumentsType } from "../ui/components/ModalWindow/ModalWindow";
 
 export const useModifyTable = (
   defaultUserData: IUser[] | null,
-  columns: {
-    key: ColumnNameType;
-    isSelected: boolean;
-  }[]) => {
+  columns: ColumnArgumentsType[]) => {
   const [modifiedUserData, setModifiedUserData] = useState<Partial<IUser[]>>()
 
   useEffect(() => {
@@ -18,7 +16,6 @@ export const useModifyTable = (
             newUser = {...newUser, [column.key]: user[column.key]}
           }
         })
-
         return newUser;
       })
       setModifiedUserData(updatedUsers)

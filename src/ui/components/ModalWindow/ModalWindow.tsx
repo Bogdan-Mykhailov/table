@@ -6,7 +6,7 @@ import style from '../../CommonStyles/Button.module.css'
 import { ModalEdited } from "./ModalEdited/ModalEdited";
 import crossIcon from '../../../assets/xmark-solid.svg'
 
-type ColumnArgumentsType = {
+export type ColumnArgumentsType = {
   key: ColumnNameType;
   isSelected: boolean;
 }
@@ -17,7 +17,11 @@ type ModalType = {
   columns: ColumnArgumentsType[];
 }
 
-export const ModalWindow = ({columns, closeModal, modalMode}: ModalType) => {
+export const ModalWindow = ({
+                              columns,
+                              closeModal,
+                              modalMode
+                            }: ModalType) => {
   const [localColumnsState, setLocalColumnsState] = useState(columns)
   const [text, setText] = useState('')
   const dispatch = useAppDispatch()
@@ -51,27 +55,58 @@ export const ModalWindow = ({columns, closeModal, modalMode}: ModalType) => {
   }
 
   return (
-    <ModalEdited closeModal={closeModal} modalMode={modalMode}>
+    <ModalEdited
+      closeModal={closeModal}
+      modalMode={modalMode}
+    >
       <div className={s.modal}>
-        <input className={s.input} placeholder='Search Available columns...' type="text" onChange={onChangeHandler} value={text}/>
+        <input
+          className={s.input}
+          placeholder='Search Available columns...'
+          type="text"
+          onChange={onChangeHandler}
+          value={text}
+        />
         <div className={s.columnsWrapper}>
           <div className={s.available}>
             <p className={s.title}>Available Columns</p>
-            {localColumnsState.filter((f) => {
-              return f.key.match(text)
-            }).map(c => !c.isSelected && <div onClick={() => onColumnChangeHandler(c)} className={s.columnItems} key={c.key}>{c.key.toUpperCase()}
-            </div>)}
+            {
+              localColumnsState.filter((f) => {
+                return f.key.match(text)
+              }).map(c => !c.isSelected && <div
+                onClick={() => onColumnChangeHandler(c)}
+                className={s.columnItems}
+                key={c.key}
+              >
+                {c.key.toUpperCase()}
+              </div>)
+            }
           </div>
 
           <div className={s.selected}>
             <p className={s.title}>Selected Columns</p>
-            {localColumnsState.map(c => c.isSelected && <div className={s.columnItems} key={c.key}>{c.key.toUpperCase()}
-              <img className={s.cross} src={crossIcon} onClick={() => onColumnChangeHandler(c)}/>
-            </div>)}
+            {
+              localColumnsState.map(c => c.isSelected && <div
+                className={s.columnItems}
+                key={c.key}
+              >
+                {c.key.toUpperCase()}
+                <img
+                  className={s.cross}
+                  src={crossIcon}
+                  onClick={() => onColumnChangeHandler(c)}
+                />
+              </div>)
+            }
           </div>
         </div>
 
-        <button className={`${s.button} ${style.button}`} onClick={clickHandler}>Apply</button>
+        <button
+          className={`${s.button} ${style.button}`}
+          onClick={clickHandler}
+        >
+          Apply
+        </button>
       </div>
     </ModalEdited>
   );
