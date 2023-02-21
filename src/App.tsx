@@ -17,6 +17,7 @@ function App() {
 
       {isLoading && <div className={s.preloader}>Loading...</div>}
       <Table closeModal={toggleInCreationModal}/>
+
       <ModalWindow
         modalMode={inCreationModal}
         closeModal={toggleInCreationModal}

@@ -1,43 +1,55 @@
-# Getting Started with Create React App
+# Table
+Table is a web application that allows users to view and manipulate data in a table format. It is built with React, Redux Toolkit, and TypeScript.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Installation
 
-## Available Scripts
+To install Table, follow these steps:
 
-In the project directory, you can run:
+1. Clone the repository to your local machine
+2. Navigate to the project directory in your terminal
+3. Run `yarn` to install dependencies
+4. Run `yarn start` to start the development server
 
-### `yarn start`
+To use Table, open the application in your browser at [http://localhost:3000](http://localhost:3000).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Table comes with a default table that includes four columns: name, username, phone, and company. These columns are displayed by default when the user first opens the application. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<img width="1501" alt="Screenshot 2023-02-21 at 15 56 54" src="https://user-images.githubusercontent.com/91826635/220370000-17ba15fd-278d-4aee-9ed8-bb83eee46e2c.png">
 
-### `yarn test`
+Users can customize the columns that are displayed in the table by opening the "Select Columns" modal window and selecting or deselecting columns.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img width="651" alt="Screenshot 2023-02-21 at 16 00 44" src="https://user-images.githubusercontent.com/91826635/220370231-5189e429-715c-4635-adef-34463deaf7e9.png">
 
-### `yarn build`
+The modal window displays a list of available columns that can be added to the table. The list of available columns is searchable using an input field at the top of the modal. As the user types in the search field, the list of available columns is filtered to only show columns that match the search query.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img width="1337" alt="Screenshot 2023-02-21 at 16 22 14" src="https://user-images.githubusercontent.com/91826635/220370965-c945274d-0d8f-421f-9300-5a40a8769fd6.png">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The modal window is implemented using React and Redux Toolkit. The state of the modal window (list of available and selected columns) is managed using Redux Toolkit.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Modal window includes an input that allows users to search for available columns. When the user types in the input field, the table is automatically filtered to only display columns that is available.
 
-### `yarn eject`
+<img width="1306" alt="Screenshot 2023-02-21 at 16 29 27" src="https://user-images.githubusercontent.com/91826635/220372672-2417e877-6c28-4047-b60e-b0626a0f2b75.png">
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Contributing
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+If you would like to contribute to Table, please follow these steps:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. Fork the repository
+2. Create a new branch for your feature or bug fix
+3. Implement your changes
+4. Write tests for your changes (if applicable)
+5. Run `yarn test` to ensure that all tests pass
+6. Submit a pull request to the `main` branch
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Tech Stack
+
+Table is built with a modern tech stack that includes the following technologies:
+
+- React
+- Redux Toolkit
+- TypeScript
+- CSS Modules
+- Webpack
 
 ## Learn More
 

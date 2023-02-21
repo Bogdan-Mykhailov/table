@@ -5,7 +5,6 @@ export type ColumnsType = {
     isSelected: boolean;
 }
 
-
 type InitialSateType = {
   columns: ColumnsType[];
   isLoading: boolean;
